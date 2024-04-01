@@ -1,0 +1,86 @@
+/**************************/
+/* registration SECTION */
+/**************************/
+
+body {
+  background-color: #e7ede7;
+}
+
+.section-registration {
+  /* top / right / bottom / left */
+  /* padding: 9.6rem 0 12.8rem 0; */
+
+  /* top / horizontal / left */
+  padding: 6.4rem 0 12.8rem;
+}
+
+.registration {
+  display: grid;
+  /* 2/3 = 66.6% + 1/3 = 33.3% */
+  grid-template-columns: 2fr 1fr;
+  /* background-color: #104911 ; */
+  box-shadow: 0 4.8rem 9.6rem rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+
+  background-image: linear-gradient(to right bottom, #406d41, #104911);
+  overflow: hidden;
+}
+
+.registration-text-box {
+  padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+  color: #082509;
+}
+
+.registration .heading-secondary {
+  color: inherit;
+  margin-bottom: 3.2rem;
+}
+
+.registration-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+
+.registration-img-box {
+  background-image: linear-gradient(to right bottom, #1049111f, #10491125),
+    url("../../website_implementation/media/gallery/registration.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.registration-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+}
+
+.registration-form label {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.registration-form input,
+.registration-form select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: #e7ede7;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.registration-form input::placeholder {
+  color: #aaa;
+}
+
+.registration *:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem #e7ede773;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="website_implementation/css/general.css" />
+    <link rel="stylesheet" href="website_implementation/css/style.css" />
+    <link rel="stylesheet" href="website_implementation/css/registration.css" />
+
+    <title>Events Registration</title>
+  </head>
+  <body>
+    <main>
+      <header class="header">
+        <a href="index.html">
+          <img
+            class="logo"
+            alt="well-being company logo"
+            src="website_implementation/media/logo/logo.png"
+          />
+        </a>
+        <nav class="main-nav">
+          <ul class="main-nav-list">
+            <li><a class="main-nav-link" href="#">Header1</a></li>
+            <li><a class="main-nav-link" href="#">Header2</a></li>
+            <li><a class="main-nav-link" href="#">Header3</a></li>
+            <li><a class="main-nav-link" href="#">Header4</a></li>
+            <li>
+              <a class="main-nav-link nav-cta" href="index.html"
+                >Back to home</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <section class="section-registration" id="registration">
+        <div class="container">
+          <div class="registration">
+            <div class="registration-text-box">
+              <h2 class="heading-secondary">
+                Join our health community right now!
+              </h2>
+              <p class="registration-text">
+                Healthy Community are waiting for you. Start living well today.
+              </p>
+
+              <form
+                class="registration-form"
+                name="sign-up"
+                netlify
+                action="events.html"
+              >
+                <div>
+                  <label for="full-name">Full Name</label>
+                  <input
+                    id="full-name"
+                    type="text"
+                    placeholder="John Smith"
+                    name="full-name"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="email">Email address</label>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="me@example.com"
+                    name="email"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="select-where">Where did you hear from us?</label>
+                  <select id="select-where" name="select-where" required>
+                    <option value="">Please choose one option:</option>
+                    <option value="friends">Friends and family</option>
+                    <option value="youtube">YouTube video</option>
+                    <option value="podcast">Podcast</option>
+                    <option value="ad">Facebook ad</option>
+                    <option value="others">Others</option>
+                  </select>
+                </div>
+
+                <button class="btn btn--form">Sign up now</button>
+
+                <!-- <input type="checkbox" />
+                  <input type="number" /> -->
+              </form>
+            </div>
+            <div
+              class="registration-img-box"
+              role="img"
+              aria-label="Woman watching chat on laptop"
+            ></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

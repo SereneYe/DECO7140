@@ -114,3 +114,35 @@
   color: #0b330c;
   font-weight: 700;
 }
+
+/**************************/
+/* INTRO SECTION */
+/**************************/
+
+.section-intro {
+  padding: 9.6rem 0;
+}
+
+.intro-number {
+  font-size: 8.6rem;
+  font-weight: 600;
+  color: #ddd;
+  margin-bottom: 1.2rem;
+}
+
+.intro-description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+.intro-img-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-img {
+  width: 70%;
+  /* z-index: 10; */
+}

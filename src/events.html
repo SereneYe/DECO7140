@@ -12,35 +12,73 @@
     />
 
     <link rel="stylesheet" href="website_implementation/css/general.css" />
-    <link rel="stylesheet" href="website_implementation/css/style.css" />
-    <link rel="stylesheet" href="website_implementation/css/registration.css" />
+
+    <link
+      rel="stylesheet"
+      href="website_implementation/css/events/header.css"
+    />
 
     <title>Events List</title>
   </head>
   <body>
-    <div class="container">
-      <header class="header">
-        <a href="index.html">
-          <img
-            class="logo"
-            alt="well-being company logo"
-            src="website_implementation/media/logo/logo.png"
-          />
-        </a>
-        <nav class="main-nav">
-          <ul class="main-nav-list">
-            <li><a class="main-nav-link" href="#">Header1</a></li>
-            <li><a class="main-nav-link" href="uploadMap.html">Upload</a></li>
-            <li><a class="main-nav-link" href="#">Header3</a></li>
-            <li><a class="main-nav-link" href="#">Header4</a></li>
-            <li>
-              <a class="main-nav-link nav-cta" href="index.html"
-                >Back to home</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </header>
-    </div>
+    <header class="header">
+      <a href="index.html">
+        <img
+          class="logo"
+          alt="well-being company logo"
+          src="website_implementation/media/logo/logo.png"
+        />
+      </a>
+
+      <form class="search">
+        <input
+          type="text"
+          class="search-field"
+          placeholder="  Search over 1,000,000 recipes..."
+        />
+        <button class="btn search-btn">
+          <span>Search</span>
+        </button>
+      </form>
+
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <button class="nav-btn nav-btn--add-recipe">
+              <span>Add recipe</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-btn nav-btn--bookmarks">
+              <span>Bookmarks</span>
+            </button>
+            <div class="bookmarks">
+              <ul class="bookmarks__list">
+                <div class="message">
+                  <p>No bookmarks yet. Find a nice recipe and bookmark it :)</p>
+                </div>
+
+                <!-- <li class="preview">
+                    <a class="preview__link" href="#23456">
+                      <figure class="preview__fig">
+                        <img src="src/img/test-1.jpg" alt="Test" />
+                      </figure>
+                      <div class="preview__data">
+                        <h4 class="preview__name">
+                          Pasta with Tomato Cream ...
+                        </h4>
+                        <p class="preview__publisher">The Pioneer Woman</p>
+                      </div>
+                    </a>
+                  </li> -->
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-btn nav-btn--backhome" href="index.html">Back Home</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
   </body>
 </html>

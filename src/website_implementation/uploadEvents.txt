@@ -1,0 +1,95 @@
+const baseURL =
+        "https://damp-castle-86239-1b70ee448fbd.herokuapp.com/decoapi/community_events/";
+      document
+        .getElementById("uploadButton")
+        .addEventListener("click", function () {
+          const fileInput = document.getElementById("fileInput");
+          const postCommunityEventMethod = "POST";
+
+          var formData = new FormData();
+          formData.append("name", "Yoga Session under the Bridge");
+          formData.append("location", "-28.4973958, 153.0401374");
+          formData.append("organiser", "Jane Doe");
+          formData.append("event_type", "Group Activity");
+          formData.append(
+            "description",
+            "A community yoga session open to all skill levels. Bring your own mat. Free entry!"
+          );
+          formData.append("date_time", "2023-10-21 17:30");
+          formData.append(
+            "photo",
+            fileInput.files[0],
+            "yoga_under_the_bridge.jpg"
+          );
+          formData.append("website_code", "serene12345");
+
+          const requestOptions2 = {
+            method: postCommunityEventMethod,
+            body: formData,
+            redirect: "follow",
+          };
+
+          fetch(baseURL, requestOptions2)
+            .then((response) => response.text())
+            .then((result) => console.log(result))
+            .catch((error) => console.log("error", error));
+        });
+
+
+
+
+----------------
+
+ var formData = new FormData();
+          formData.append("name", "Breast Cancer Session");
+          formData.append("location", "-27.4923958, 153.0801574");
+          formData.append("organiser", "National Breast Cancer Foundation");
+          formData.append("event_type", "Seminar");
+          formData.append(
+            "description",
+            "5 minutes with National Breast Cancer Foundation CEO Cleola Anderiesz!"
+          );
+          formData.append("date_time", "2024-3-12 14:30");
+          formData.append(
+            "photo",
+            fileInput.files[0],
+            "The-National-Breast-Cancer-Foundation-CEO.jpg"
+          );
+
+---------------------
+
+var formData = new FormData();
+          formData.append("name", "Join the Festival of Holi");
+          formData.append("location", "-24.4923958, 152.501574");
+          formData.append("organiser", "Everyone");
+          formData.append("event_type", "Group Activity");
+          formData.append(
+            "description",
+            "One of the most colourful, vibrant and fun-filled festivals from India."
+          );
+          formData.append("date_time", "2024-3-24 10:30");
+          formData.append(
+            "photo",
+            fileInput.files[0],
+            "Param-and-her-family.jpg"
+          );
+          formData.append("website_code", "serene12345");
+
+---------------
+
+ var formData = new FormData();
+          formData.append("name", "Grant Program 2024");
+          formData.append("location", "-24.492393, 152.421574");
+          formData.append("organiser", "Asylum Seekers Centre");
+          formData.append("event_type", "Group Activity");
+          formData.append(
+            "description",
+            "Food support grants are available for projects that improve access to affordable and healthy food as the cost of living soars."
+          );
+          formData.append("date_time", "2024-02-06 10:00");
+          formData.append("photo", fileInput.files[0], "Box-of-spinach.jpg");
+          formData.append("website_code", "serene12345");
+
+
+
+

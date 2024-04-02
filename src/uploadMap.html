@@ -52,44 +52,51 @@
       <div class="sidebar">
         <h1 class="heading-primary">Upload your events</h1>
 
-        <ul class="workouts">
+        <ul class="events">
           <form class="form hidden">
             <div class="form__row">
-              <label class="form__label">Type</label>
-              <select class="form__input form__input--type">
-                <option value="running">Running</option>
-                <option value="cycling">Cycling</option>
-              </select>
-            </div>
-            <div class="form__row">
-              <label class="form__label">Distance</label>
+              <label class="form__label">Name</label>
               <input
-                class="form__input form__input--distance"
-                placeholder="km"
-              />
-            </div>
-            <div class="form__row">
-              <label class="form__label">Duration</label>
-              <input
-                class="form__input form__input--duration"
-                placeholder="min"
+                class="form__input form__input--name"
+                placeholder="Event name"
               />
             </div>
 
             <div class="form__row">
-              <label class="form__label">Cadence</label>
+              <label class="form__label">Type</label>
+              <select class="form__input form__input--type">
+                <option value="workshop">Workshop</option>
+                <option value="seminar">Seminar</option>
+                <option value="activity">Group Activity</option>
+                <option value="webinar">Webinar</option>
+              </select>
+            </div>
+            <div class="form__row">
+              <label class="form__label">Time</label>
               <input
-                class="form__input form__input--cadence"
-                placeholder="step/min"
+                class="form__input form__input--dateTime"
+                placeholder="XX/XX/XXXX XX:XX"
               />
             </div>
-            <div class="form__row form__row--hidden">
-              <label class="form__label">Elev Gain</label>
+
+            <div class="form__row">
+              <label class="form__label">Organizer</label>
               <input
-                class="form__input form__input--elevation"
-                placeholder="meters"
+                class="form__input form__input--organizer"
+                placeholder="Organizer name"
               />
             </div>
+
+            <div class="form__row form__description">
+              <label class="form__label">Description</label>
+            </div>
+            <div class="form__row form__description">
+              <input
+                class="form__input form__input--description"
+                placeholder="Add your event description here."
+              />
+            </div>
+
             <button class="form__btn">OK</button>
           </form>
         </ul>

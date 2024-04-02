@@ -1,5 +1,6 @@
 .header {
   display: flex;
+  grid-area: head;
   justify-content: space-between;
   align-items: center;
   background-color: #e7ede7;
@@ -36,14 +37,19 @@
 }
 
 .search-btn {
-  font-weight: 600;
-  font-family: inherit;
-  background-color: #406d41;
+  text-decoration: none;
   color: #e7ede7;
-  margin-left: 1rem;
-  border: none;
+  background-color: #406d41;
+  font-weight: 600;
+  font-size: 1.8rem;
+  height: 100%;
+  font-family: inherit;
   cursor: pointer;
   padding: 1.5rem 2.5rem;
+  display: flex;
+  align-items: center;
+  border: none;
+  margin: 1.6rem;
   border-radius: 12px;
   transition: all 0.3s;
 }
@@ -63,7 +69,7 @@
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 3.2rem;
+  gap: 1.6rem;
 }
 
 .nav-item {

@@ -38,6 +38,7 @@
 
 .main-nav-link:hover,
 .main-nav-link:active {
+  transform: scale(1.05);
   color: #406d41;
 }
 

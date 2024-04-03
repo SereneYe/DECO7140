@@ -25,7 +25,7 @@ Paragraph default: 1.6
 - Primary: #104911 
 - Tints:
 #285b29 #406d41 #588058 #709270 #88a488 #9fb6a0
-#b7c8b8 #cfdbcf #e7ede7
+#b7c8b8 #cfdbcf #e7ede7 #ecf1ec
 - Shades: 
 #0d3a0e
 #0b330c
@@ -35,7 +35,7 @@ Paragraph default: 1.6
 #030f03
 
 - Accents:
-#548C2F #FFD449 #F9A620
+#548C2F #FFD449 #F9A620 #e18b00
 - Greys
 
 #888
@@ -202,6 +202,7 @@ body {
 .btn--full:hover,
 .btn--full:active {
   background-color: #588058;
+  transform: scale(1.05);
 }
 
 .btn--outline:link,
@@ -213,6 +214,7 @@ body {
 .btn--outline:hover,
 .btn--outline:active {
   background-color: #e7ede7;
+  transform: scale(1.05);
 
   /* border: 3px solid #fff; */
 
@@ -230,6 +232,7 @@ body {
 .btn--form:hover {
   background-color: #fff;
   color: #555;
+  transform: scale(1.05);
 }
 
 .link:link,
@@ -246,6 +249,7 @@ body {
 .link:active {
   color: #030f03;
   border-bottom: 1px solid transparent;
+  transform: scale(1.05);
 }
 
 .list {
@@ -291,4 +295,30 @@ body {
 
 strong {
   font-weight: 500;
+}
+/*******************/
+/* REUSABLE FOR EVENT PAGE */
+
+.message,
+.error {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 5rem 4rem;
+  display: flex;
+}
+
+.message p,
+.error p {
+  margin-left: 1.5rem;
+  font-size: 3rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.heading--2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #285b29;
+  text-transform: uppercase;
+  text-align: center;
 }

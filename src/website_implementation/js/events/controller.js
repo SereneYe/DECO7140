@@ -21,12 +21,9 @@ const controlEvents = async () => {
     // 2) Render event on UI
     const eventView = new EventView();
     const id = window.location.hash.slice(1);
-    console.log(id);
     if (!id) return;
     const eventsArray = Object.values(state.events);
-    console.log(eventsArray);
     const Event = eventsArray.find((event) => event.id.toString() === id);
-    console.log(Event);
     eventView.render(Event);
   } catch (err) {
     console.error(err);

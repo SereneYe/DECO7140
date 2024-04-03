@@ -12,6 +12,7 @@ export class EventView extends View {
   }
 
   _generateMarkup() {
+    console.log(this);
     return `
         <figure class="event__fig">
           <img src="${this._data.photo}" alt="${this._data.name}" class="event__img"/>

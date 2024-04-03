@@ -1,10 +1,10 @@
 "use strict";
-import { state, loadEvent } from "./events/createEvent.js";
+import { state, loadEvent } from "./events/model.js";
 import { getEventEmoji, formatDateTime } from "./helper.js";
 
 class Event {
   date = new Date();
-  id = (Date.now() + "").slice(-10);
+  id = Number((Date.now() + "").slice(-3));
   constructor(id, coords, name, dateTime, type, organizer, description) {
     // this.date = ...
     this.id = id;

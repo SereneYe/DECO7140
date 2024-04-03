@@ -190,15 +190,15 @@ a:visited {
   background-color: #e7ede7;
 }
 
-.seminar-popup .leaflet-popup-content-wrapper {
+.Seminar-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid #104911;
 }
-.workshop-popup .leaflet-popup-content-wrapper {
+.Workshop-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid #f9a620;
 }
-.activity-popup .leaflet-popup-content-wrapper {
+.Activity-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid #ffd449;
 }
-.webinar-popup .leaflet-popup-content-wrapper {
+.Webinar-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid #e26715;
 }

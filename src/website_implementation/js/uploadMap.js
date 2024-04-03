@@ -7,7 +7,7 @@ class Event {
   id = Number((Date.now() + "").slice(-3));
   constructor(id, coords, name, dateTime, type, organizer, description) {
     // this.date = ...
-    this.id = id;
+    this.id = id ? id : this.id;
     this.coords = coords; // [lat, lng]
     this.name = name;
     this.dateTime = dateTime;
@@ -39,8 +39,8 @@ class App {
     this._getPosition();
 
     // Get data from local storage
-    this._getLocalStorage();
     this._adjustAPIData();
+    this._getLocalStorage();
 
     // Attach event handlers
     form.addEventListener("submit", this._newEvent.bind(this));
@@ -117,7 +117,16 @@ class App {
       return alert("All inputs have to be filled!");
     }
 
-    event = new Event([lat, lng], name, dateTime, type, organizer, description);
+    event = new Event(
+      "",
+      [lat, lng],
+      name,
+      dateTime,
+      type,
+      organizer,
+      description
+    );
+
     // Add new object to event array
     this.#events.push(event);
 
@@ -135,6 +144,7 @@ class App {
   }
 
   _renderEventMarker(event) {
+    console.log(this);
     L.marker(event.coords)
       .addTo(this.#map)
       .bindPopup(
@@ -191,6 +201,7 @@ class App {
     if (!eventEl) return;
 
     const event = this.#events.find((event) => event.id === eventEl.dataset.id);
+    console.log(event.coords);
 
     this.#map.setView(event.coords, this.#mapZoomLevel, {
       animate: true,
@@ -225,17 +236,16 @@ class App {
     eventsArray.forEach((event) => {
       const { id, coords, name, dateTime, type, organiser, description } =
         event;
-      let newEvent = {
-        date: new Date().toISOString(),
-        id: id,
-        coords: coords,
-        name: name,
-        dateTime: formatDateTime(dateTime),
-        type: type,
-        organizer: organiser,
-        description: description,
-        emoji: getEventEmoji(type),
-      };
+
+      const newEvent = new Event(
+        id,
+        coords,
+        name,
+        formatDateTime(dateTime),
+        type,
+        organiser,
+        description
+      );
 
       this.#events.push(newEvent);
     });

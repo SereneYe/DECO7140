@@ -219,31 +219,30 @@ class App {
     });
   }
 
-  _adjustAPIData() {
-    loadEvent().then(() => {
-      const eventsArray = Object.values(state.events);
-      eventsArray.forEach((event) => {
-        const { id, coords, name, dateTime, type, organiser, description } =
-          event;
-        let newEvent = {
-          date: new Date().toISOString(),
-          id: id,
-          coords: coords,
-          name: name,
-          dateTime: formatDateTime(dateTime),
-          type: type,
-          organizer: organiser,
-          description: description,
-          emoji: getEventEmoji(type),
-        };
+  async _adjustAPIData() {
+    await loadEvent();
+    const eventsArray = Object.values(state.events);
+    eventsArray.forEach((event) => {
+      const { id, coords, name, dateTime, type, organiser, description } =
+        event;
+      let newEvent = {
+        date: new Date().toISOString(),
+        id: id,
+        coords: coords,
+        name: name,
+        dateTime: formatDateTime(dateTime),
+        type: type,
+        organizer: organiser,
+        description: description,
+        emoji: getEventEmoji(type),
+      };
 
-        this.#events.push(newEvent);
-      });
+      this.#events.push(newEvent);
+    });
 
-      console.log(this.#events);
-      this.#events.forEach((event) => {
-        this._renderEvent(event);
-      });
+    console.log(this.#events);
+    this.#events.forEach((event) => {
+      this._renderEvent(event);
     });
   }
 

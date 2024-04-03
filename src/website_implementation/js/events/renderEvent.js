@@ -41,7 +41,7 @@ class EventView extends View {
 
           <div class="event__info full-width">
             <h2 class="heading--2">Holding Location: </h2>
-            <span class="event__info-data event__info-data--minutes">${this._data.coords}</span>
+            <span class="event__info-data event__info-data--minutes">${this._data.address}</span>
             <a class="btn--small event__btn" href="uploadMap.html" target="_blank">
               <span>See on the map</span>
             </a>
@@ -62,7 +62,7 @@ class EventView extends View {
 const eventView = new EventView();
 
 loadEvent().then(() => {
-  const firstEntry = Array.from(state.events.entries())[0];
-  const firstEvent = firstEntry[1];
+  const eventsArray = Object.values(state.events);
+  const firstEvent = eventsArray[0];
   eventView.render(firstEvent);
 });

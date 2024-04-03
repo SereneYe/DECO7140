@@ -2,7 +2,7 @@ import { fetchEvents } from "../services/fetchEvents.js";
 import { getAddressFromCoords } from "../services/geoCoding.js";
 import { formatDateTimeYear, getEventEmoji } from "../helper.js";
 
-const state = {
+export const state = {
   events: {},
 };
 
@@ -26,7 +26,7 @@ const createEventObject = async function (event) {
   };
 };
 
-const loadEvent = async function () {
+export const loadEvent = async function () {
   try {
     const events = await fetchEvents();
     const eventObjects = await Promise.all(events.map(createEventObject));
@@ -38,5 +38,3 @@ const loadEvent = async function () {
     throw err;
   }
 };
-
-export { state, loadEvent };

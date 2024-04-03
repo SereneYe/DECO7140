@@ -61,10 +61,6 @@ export default class View {
   renderError(message = this._errorMessage) {
     const markup = `<div class="error">
             <div>
-              <svg>
-                <use href="${icons}#icon-alert-triangle"></use>
-              </svg>
-            </div>
             <p>${message}</p>
           </div>`;
     this._clear();
@@ -75,10 +71,6 @@ export default class View {
     const markup = `
       <div class="message">
         <div>
-          <svg>
-            <use href="${icons}#icon-smile"></use>
-          </svg>
-        </div>
         <p>${message}</p>
       </div>
     `;

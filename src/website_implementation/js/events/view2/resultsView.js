@@ -1,11 +1,7 @@
-import { state, loadEvent } from "./createEvent.js";
-import View from "./view/View.js";
+// view.js
+import View from "./View.js";
 
-loadEvent().then(() => {
-  console.log(state.events);
-});
-
-class PreviewView extends View {
+export class PreviewView extends View {
   _generateMarkup() {
     const id = window.location.hash.slice(1);
     return `<li class="preview">
@@ -25,32 +21,16 @@ class PreviewView extends View {
   }
 }
 
-class ResultsView extends View {
+export class ResultsView extends View {
   _parentElement = document.querySelector(".results");
   _errorMessage = "No event found for your query! Please try again!";
   _message = "";
 
   _generateMarkup() {
     const resultsArray = Object.values(this._data);
+    const previewView = new PreviewView();
     return resultsArray
       .map((result) => previewView.render(result, false))
       .join("");
   }
 }
-
-const resultsView = new ResultsView();
-
-const previewView = new PreviewView();
-
-const renderAllEvents = async () => {
-  await loadEvent();
-
-  await loadEvent();
-  resultsView.render(state.events);
-  // const eventsArray = Object.values(state.events);
-  // eventsArray.forEach((event) => {
-  //   resultsView.render(event);
-  // });
-};
-
-renderAllEvents();

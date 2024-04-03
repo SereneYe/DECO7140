@@ -1,11 +1,6 @@
-import { state, loadEvent } from "./createEvent.js";
-import View from "./view/View.js";
+import View from "./View.js";
 
-loadEvent().then(() => {
-  console.log(state.events);
-});
-
-class EventView extends View {
+export class EventView extends View {
   _parentElement = document.querySelector(".event");
   _errorMessage = "We could not find that event. Please try another one!";
   _message = "";
@@ -58,11 +53,3 @@ class EventView extends View {
     `;
   }
 }
-
-const eventView = new EventView();
-
-loadEvent().then(() => {
-  const eventsArray = Object.values(state.events);
-  const firstEvent = eventsArray[0];
-  eventView.render(firstEvent);
-});

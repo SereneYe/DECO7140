@@ -174,7 +174,7 @@ body {
 
 .search-results {
   background-color: #cfdbcf;
-  padding: 3rem 0;
+  padding: 1rem 0;
   display: flex;
   flex-direction: column;
 }
@@ -190,6 +190,34 @@ body {
 
 .results::-webkit-scrollbar {
   display: none;
+}
+
+/**************************/
+/* SORT BUTTON COMPONENTS */
+/**************************/
+
+.button-box {
+  display: flex;
+  align-items: center;
+  margin-left: 4rem;
+  margin-bottom: 1rem;
+}
+
+.sort-button {
+  border: none;
+  font-weight: 600;
+  font-size: 1.8rem;
+  background-color: #e7ede7;
+  color: #406d41;
+  width: 16rem;
+  height: 3.2rem;
+  border-radius: 10px;
+}
+.sort-button:hover,
+.sort-button:focus {
+  border: none;
+  background-color: #9fb6a0;
+  color: #0d3a0e;
 }
 
 /**************************/

@@ -27,7 +27,7 @@
       <header class="header">
         <a href="index.html">
           <img
-            class="logo"
+            class="logo-img"
             alt="well-being company logo"
             src="website_implementation/media/logo/logo.png"
           />
@@ -58,6 +58,14 @@
       </header>
 
       <div class="search-results">
+        <div class="button-box">
+          <select class="sort-button" id="sortSelect">
+            <option value="order">Sort by release order</option>
+            <option value="type">Sort by type</option>
+            <option value="dateTime">Sort by time</option>
+            <option value="name">Sort by name</option>
+          </select>
+        </div>
         <ul class="results"></ul>
       </div>
 

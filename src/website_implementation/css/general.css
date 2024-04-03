@@ -90,6 +90,10 @@ body {
 /**************************/
 /* GENRAL REUSABLE COMPONENTS */
 /**************************/
+.logo-img {
+  width: auto;
+  height: 7rem;
+}
 
 .container {
   /* 1140px */

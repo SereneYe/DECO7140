@@ -1,34 +1,20 @@
 "use strict";
+import { state, loadEvent } from "./events/createEvent.js";
+import { getEventEmoji, formatDateTime } from "./helper.js";
 
 class Event {
   date = new Date();
   id = (Date.now() + "").slice(-10);
-  constructor(coords, name, dateTime, type, organizer, description) {
+  constructor(id, coords, name, dateTime, type, organizer, description) {
     // this.date = ...
-    // this.id = id;
+    this.id = id;
     this.coords = coords; // [lat, lng]
     this.name = name;
     this.dateTime = dateTime;
     this.type = type;
     this.organizer = organizer;
     this.description = description;
-    this.emoji = this._getEventEmoji();
-  }
-
-  _getEventEmoji() {
-    const eventType = this.type.toLowerCase();
-    switch (eventType) {
-      case "workshop":
-        return "🛠️";
-      case "seminar":
-        return "📚";
-      case "activity":
-        return "💃";
-      case "webinar":
-        return "💻";
-      default:
-        return "🧘";
-    }
+    this.emoji = getEventEmoji(this.type);
   }
 }
 
@@ -54,7 +40,7 @@ class App {
 
     // Get data from local storage
     this._getLocalStorage();
-    this._getAPIData();
+    this._adjustAPIData();
 
     // Attach event handlers
     form.addEventListener("submit", this._newEvent.bind(this));
@@ -98,7 +84,7 @@ class App {
   _showForm(mapE) {
     this.#mapEvent = mapE;
     form.classList.remove("hidden");
-    inputDistance.focus();
+    inputName.focus();
   }
 
   _hideForm() {
@@ -233,11 +219,32 @@ class App {
     });
   }
 
-  _getAPIData() {
-    // After successfully implement the remaining part
-    // fetch("https://jsonplaceholder.typicode.com/posts")
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data));
+  _adjustAPIData() {
+    loadEvent().then(() => {
+      const eventsArray = Object.values(state.events);
+      eventsArray.forEach((event) => {
+        const { id, coords, name, dateTime, type, organiser, description } =
+          event;
+        let newEvent = {
+          date: new Date().toISOString(),
+          id: id,
+          coords: coords,
+          name: name,
+          dateTime: formatDateTime(dateTime),
+          type: type,
+          organizer: organiser,
+          description: description,
+          emoji: getEventEmoji(type),
+        };
+
+        this.#events.push(newEvent);
+      });
+
+      console.log(this.#events);
+      this.#events.forEach((event) => {
+        this._renderEvent(event);
+      });
+    });
   }
 
   reset() {

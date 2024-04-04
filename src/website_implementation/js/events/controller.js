@@ -1,7 +1,8 @@
-import { state, loadEvent } from "./model.js";
-import { ResultsView } from "./view2/resultsView.js";
-import { EventView } from "./view2/eventView.js";
+import { state, loadEvent, uploadEvent } from "./model.js";
+import resultsView from "./view/resultsView.js";
+import eventView from "./view/eventView.js";
 import EventController from "../controlEvent.js";
+import addEventView from "./view/addEventView.js";
 
 const controlSearchResults = async () => {
   try {
@@ -9,7 +10,6 @@ const controlSearchResults = async () => {
     await loadEvent();
     console.log(state.events);
     // 2) Render results on UI
-    const resultsView = new ResultsView();
     resultsView.render(state.events);
   } catch (err) {
     console.error(err);
@@ -21,7 +21,6 @@ const controlEvents = async () => {
     // 1) Load event
     await loadEvent();
     // 2) Render event on UI
-    const eventView = new EventView();
     const id = window.location.hash.slice(1);
     if (!id) return;
     const eventsArray = Object.values(state.events);
@@ -60,14 +59,32 @@ const controlSortedResults = async () => {
   }
 };
 
+/////////////////////////
+const controlAddEvent = async function (newEvent) {
+  try {
+    // Upload the new Event data
+    await uploadEvent(newEvent);
+    console.log(state.events);
+    // Render events
+    eventView.render(state.events);
+
+    // Close form window
+    setTimeout(function () {
+      addEventView.togglePopup();
+    }, 5 * 1000);
+  } catch (err) {
+    console.error("🥲🥲🥲", err);
+    addEventView.renderError(err.message);
+  }
+};
+
 //////////////////////////
 
 const init = function () {
   controlSearchResults();
-  controlEvents();
   controlSortedResults();
-  window.addEventListener("hashchange", controlEvents);
-  window.addEventListener("load", controlEvents);
+  eventView.addHandlerRender(controlEvents);
+  addEventView.addHandlerUpload(controlAddEvent);
 };
 
 /////////////////////////////

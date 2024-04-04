@@ -163,7 +163,7 @@ class App {
 
   _renderEvent(event) {
     let html = `
-      <li class="event event--${event.type}" data-id="${event.id}">
+      <li class="event event--${event.type}" data-id="${event.id}" tabindex="0">
         <h2 class="event__title">${event.name}</h2>
         
         <div class="event__details">
@@ -201,7 +201,6 @@ class App {
     if (!eventEl) return;
 
     const event = this.#events.find((event) => event.id === eventEl.dataset.id);
-    console.log(event.coords);
 
     this.#map.setView(event.coords, this.#mapZoomLevel, {
       animate: true,

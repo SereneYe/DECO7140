@@ -1,6 +1,7 @@
 import { fetchEvents } from "../services/fetchEvents.js";
 import { getAddressFromCoords } from "../services/geoCoding.js";
 import { formatDateTimeYear, getEventEmoji } from "../helper.js";
+import { postEvent } from "../services/postEvent.js";
 
 export const state = {
   events: {},
@@ -38,3 +39,48 @@ export const loadEvent = async function () {
     throw err;
   }
 };
+
+////////////////////////////////////////////////////
+export const uploadEvent = async function (newEvent) {
+  try {
+    const coords = newEvent.coords.split(",").map(Number);
+    const [lat, lng] = coords;
+    const address = await getAddressFromCoords({
+      latitude: lat,
+      longitude: lng,
+    });
+    const emoji = getEventEmoji(newEvent.type);
+
+    const pushCloudEvent = {
+      name: newEvent.name,
+      organiser: newEvent.organiser,
+      location: newEvent.coords,
+      event_type: newEvent.type,
+      description: newEvent.description,
+      date_time: newEvent.date_time,
+      photo: newEvent.photo,
+    };
+
+    const returnedEvent = await postEvent(pushCloudEvent);
+    console.log(returnedEvent);
+
+    const newRenderEvent = {
+      id: returnedEvent.id,
+      name: returnedEvent.name,
+      organiser: returnedEvent.organiser,
+      coords: coords,
+      address: address,
+      type: returnedEvent.event_type,
+      emoji: emoji,
+      description: returnedEvent.description,
+      dateTime: formatDateTimeYear(returnedEvent.date_time),
+      photo: returnedEvent.photo,
+    };
+
+    state.events[newRenderEvent.id] = newRenderEvent;
+  } catch (err) {
+    throw err;
+  }
+};
+
+////////////////////////////////////////////////////

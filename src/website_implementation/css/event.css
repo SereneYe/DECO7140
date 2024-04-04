@@ -401,5 +401,114 @@ body {
 }
 
 /**************************/
-/* EVENT COMPONENTS */
+/* UPLOAD COMPONENTS */
 /**************************/
+.add-event-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100rem;
+  background-color: #ecf1ec;
+  border-radius: 12px;
+  padding: 6rem 8rem;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  transition: all 0.5s;
+}
+.add-event-popup .btn--close-modal {
+  font-family: inherit;
+  color: inherit;
+  position: absolute;
+  top: 0.5rem;
+  right: 1.6rem;
+  font-size: 3.5rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  transition: all 0.5s;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.upload {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem 6rem;
+}
+
+.upload__column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0rem 12rem;
+  align-items: center;
+  gap: 2rem;
+}
+
+.upload__heading {
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  grid-column: 1/-1;
+}
+.upload__column label {
+  font-size: 2rem;
+  font-weight: 600;
+  color: inherit;
+}
+.upload__column input {
+  font-size: 1.8rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+.upload__column input::placeholder {
+  color: #a4b1a0;
+}
+
+.upload__column input:focus {
+  outline: none;
+  border: 2px solid #104911;
+  background-color: #ecf1ec;
+}
+
+.form__select {
+  border: none;
+  font-weight: 500;
+  font-size: 1.8rem;
+  background-color: #e7ede7;
+  color: #406d41;
+  width: 28.75rem;
+  height: 4.2rem;
+  padding-left: 1rem;
+  border-radius: 10px;
+}
+.form__select:hover,
+.form__select:focus {
+  border: none;
+  background-color: #9fb6a0;
+  color: #0d3a0e;
+}
+
+.upload__btn {
+  font-size: 2rem;
+
+  grid-column: 1/-1;
+  justify-self: center;
+}

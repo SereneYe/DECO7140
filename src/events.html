@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="website_implementation/css/events/event.css" />
+    <link rel="stylesheet" href="website_implementation/css/event.css" />
     <link rel="stylesheet" href="website_implementation/css/general.css" />
 
     <script
@@ -47,7 +47,7 @@
         <nav class="nav">
           <ul class="nav-list">
             <li class="nav-item">
-              <a class="nav-btn" href="#"> Add Event </a>
+              <a class="nav-btn nav__btn--add-event"> Add Event </a>
             </li>
 
             <li class="nav-item">
@@ -74,6 +74,92 @@
           <p>⭐️ Start by clicking on an event. Have fun! 😄</p>
         </div>
       </div>
+    </div>
+
+    <div class="overlay hidden"></div>
+    <div class="add-event-popup hidden">
+      <button class="btn--close-modal">&times;</button>
+      <form class="upload">
+        <div class="upload__column">
+          <h3 class="upload__heading">Update your event</h3>
+          <label>Event Name</label>
+          <input
+            value=""
+            required
+            name="name"
+            type="text"
+            placeholder="Your event name"
+          />
+          <label>Event Time</label>
+          <input
+            value=""
+            required
+            name="dateTime"
+            type="text"
+            placeholder="XXXX-XX-XX XX:XX"
+          />
+          <label>Event Photo</label>
+          <input
+            type="file"
+            name="photo"
+            id="fileInput"
+            placeholder="Your event photo"
+          />
+          <label>Organiser</label>
+          <input
+            value=""
+            required
+            name="organiser"
+            type="text"
+            placeholder="Organiser's name"
+          />
+
+          <label class="form__label">Type</label>
+          <select class="form__select form__input--type" name="type">
+            <option value="Workshop">Workshop</option>
+            <option value="Seminar">Seminar</option>
+            <option value="Group Activity">Group Activity</option>
+            <option value="Webinar">Webinar</option>
+          </select>
+
+          <label>Coords</label>
+          <input
+            value=""
+            required
+            name="coords"
+            type="text"
+            placeholder="format: -27.507814650758334, 153.01603317260742"
+          />
+          <label>Location</label>
+          <input
+            value=""
+            required
+            name="address"
+            type="text"
+            placeholder="Location of the event"
+          />
+          <label>Event Description</label>
+          <input
+            value=""
+            required
+            name="description"
+            type="text"
+            placeholder="Your event description"
+          />
+          <label>Website Code</label>
+          <input
+            value=""
+            required
+            name="websiteCode"
+            type="text"
+            placeholder="serene12345"
+          />
+        </div>
+
+        <button class="nav-btn upload__btn">
+          <span>Upload</span>
+        </button>
+      </form>
     </div>
   </body>
 </html>

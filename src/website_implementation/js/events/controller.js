@@ -51,7 +51,6 @@ const controlSortedResults = async () => {
         state.events = sortedEvents;
 
         // 4) Render results on UI
-        const resultsView = new ResultsView();
         resultsView.render(state.events);
       });
   } catch (err) {

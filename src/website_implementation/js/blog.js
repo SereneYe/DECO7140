@@ -5,22 +5,20 @@ const divider1 = masonry.querySelector(".divider1");
 // variables
 let pageSize = 12;
 let cardCount = 0;
-let colHeights = [0, 0, 0]; // each column's height
+let colHeights = [0, 0, 0, 0]; // each column's height
 let observer; // intersection observer
 
-function loadData() {
+function loadCard() {
   for (let i = 0; i < pageSize; i++) {
     createCard(i);
   }
 }
 
-loadData();
-
 function observe(card) {
   if (!observer) {
     observer = new IntersectionObserver((entries) => {
       if (entries.length === 1 && entries[0].isIntersecting) {
-        loadData();
+        loadCard();
         observer.unobserve(entries[0].target);
       }
     });
@@ -31,14 +29,15 @@ function observe(card) {
 function createCard(i) {
   const cardElement = document.createElement("div");
   cardElement.classList.add("card");
+  cardElement.setAttribute("tabindex", "0");
   // hide card at beginning
   cardElement.style.position = "fixed";
   cardElement.style.top = 0;
   cardElement.style.left = 0;
   cardElement.style.visibility = "hidden";
 
-  // Generate a random height between 300 and 800
-  const randomHeight = Math.round(Math.random() * 300) + 200;
+  // Generate a random height between 300 and 500
+  const randomHeight = Math.round(Math.random() * 300) + 300;
   cardElement.style.height = `${randomHeight}px`;
 
   const cardMarkup = `
@@ -68,6 +67,13 @@ function createCard(i) {
   cardElement.style.visibility = "";
   cardElement.classList.add("show");
 
+  // Listen for the end of the animation
+  cardElement.addEventListener("animationend", () => {
+    // Remove the 'show' class and add the 'hover' class
+    cardElement.classList.remove("show");
+    cardElement.classList.add("card-hover");
+  });
+
   if (i === pageSize - 1) {
     observe(cardElement);
   }
@@ -79,7 +85,7 @@ function setMasonryHeight() {
 
 // handle window resize
 function resetMasonryHeight() {
-  colHeights = [0, 0, 0];
+  colHeights = [0, 0, 0, 0];
   document.querySelectorAll(".card").forEach((card, index) => {
     const cardHeight = card.clientHeight;
     const colIndex = (index + 1) % 3;
@@ -89,3 +95,5 @@ function resetMasonryHeight() {
 }
 
 window.addEventListener("resize", resetMasonryHeight);
+//////////
+loadCard();

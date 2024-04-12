@@ -40,12 +40,13 @@ function createCard(i) {
   cardElement.style.visibility = "hidden";
 
   const cardMarkup = `
-      <img src="${fakeData.imgSrc}" class="card-img" alt="Event card description" />
+      <img src="${fakeData.imgSrc}" class="card-img" alt=${fakeData.imageDescription} />
       <div class="card-content">
-        <p class="card-title">${fakeData.title}</p>
+        
           <p class="card-attribute">
-            <span><strong>1000</strong> ${fakeData.description}</span>
+            <span>${fakeData.comment}</span>
           </p>
+          <p class="card-username">${fakeData.username}</p>
       </div>
   `;
 

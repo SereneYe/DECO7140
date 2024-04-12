@@ -121,7 +121,7 @@
 }
 
 .card-content {
-  padding: 3.2rem 4.8rem 4.8rem 4.8rem;
+  padding: 1.6rem;
 }
 
 .card-tags {
@@ -130,11 +130,12 @@
   gap: 0.4rem;
 }
 
-.card-title {
-  font-size: 2.4rem;
+.card-username {
+  font-size: 1.6rem;
   color: #333;
-  font-weight: 600;
-  margin-bottom: 2rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  text-align: right;
 }
 
 .card-attributes {

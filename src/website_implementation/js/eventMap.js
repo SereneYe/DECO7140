@@ -9,6 +9,7 @@ class Event {
     // this.date = ...
     this.id = id ? id : this.id;
     this.coords = coords; // [lat, lng]
+    console.log(coords);
     this.name = name;
     this.dateTime = dateTime;
     this.type = type;

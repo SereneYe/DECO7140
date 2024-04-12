@@ -81,6 +81,7 @@ body {
   padding-left: 6rem;
   transition: all 0.3s;
   height: 60%;
+  justify-content: space-between;
 }
 
 .search-field {
@@ -118,7 +119,6 @@ body {
 
 .search-btn:hover,
 .search-btn:focus {
-  transform: scale(1.05);
   background-color: #104911;
   outline: none;
   border: 0.5rem solid #406d41;
@@ -135,12 +135,13 @@ body {
   list-style: none;
   display: flex;
   align-items: center;
+  margin-left: 1.6rem;
   gap: 1.6rem;
 }
 
-.nav-item {
+/* .nav-item {
   position: relative;
-}
+} */
 
 .nav-btn {
   text-decoration: none;
@@ -160,9 +161,9 @@ body {
 }
 
 .nav-btn:hover {
-  transform: scale(1.05);
   color: #ecf1ec;
   background-color: #104911;
   outline: none;
   border: 0.5rem solid #406d41;
+  transform-origin: left center;
 }

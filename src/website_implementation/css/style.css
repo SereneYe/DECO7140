@@ -188,13 +188,13 @@
 }
 
 .tag--number1 {
-  background-color: #548c2f;
+  background-color: #a3c88b;
 }
 .tag--number2 {
-  background-color: #ffd449;
+  background-color: #fddd73;
 }
 .tag--number3 {
-  background-color: #f9a620;
+  background-color: #f9ba54;
 }
 
 .card-title {
@@ -270,6 +270,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.6rem;
+
   padding: 1.6rem;
 }
 

@@ -1,3 +1,5 @@
+import fakeDataList from "./blogFakeData.js";
+
 // Initiate Masonry
 const masonry = document.querySelector(".container-photo");
 const divider1 = masonry.querySelector(".divider1");
@@ -27,6 +29,7 @@ function observe(card) {
 }
 
 function createCard(i) {
+  const fakeData = fakeDataList[i];
   const cardElement = document.createElement("div");
   cardElement.classList.add("card");
   cardElement.setAttribute("tabindex", "0");
@@ -36,19 +39,13 @@ function createCard(i) {
   cardElement.style.left = 0;
   cardElement.style.visibility = "hidden";
 
-  // Generate a random height between 300 and 500
-  const randomHeight = Math.round(Math.random() * 300) + 300;
-  cardElement.style.height = `${randomHeight}px`;
-
   const cardMarkup = `
-      <img src="website_implementation/media/gallery/gallery-3.jpg" class="card-img" alt="Event card description" />
+      <img src="${fakeData.imgSrc}" class="card-img" alt="Event card description" />
       <div class="card-content">
-        <p class="card-title">Event Title</p>
-        <ul class="card-attributes">
-          <li class="card-attribute">
-            <span><strong>1000</strong> description tag</span>
-          </li>
-        </ul>
+        <p class="card-title">${fakeData.title}</p>
+          <p class="card-attribute">
+            <span><strong>1000</strong> ${fakeData.description}</span>
+          </p>
       </div>
   `;
 
@@ -57,7 +54,10 @@ function createCard(i) {
 
   const cardIndex = cardCount;
   const colIndex = (cardIndex + 1) % 3;
-  const cardHeight = cardElement.clientHeight;
+  let cardHeight = cardElement.clientHeight;
+  if (cardHeight < 400) {
+    cardHeight = 400;
+  }
   colHeights[colIndex] += cardHeight;
   setMasonryHeight();
   masonry.insertBefore(cardElement, divider1);
@@ -77,6 +77,17 @@ function createCard(i) {
   if (i === pageSize - 1) {
     observe(cardElement);
   }
+}
+
+function updateCardHeight(imgElement) {
+  return new Promise((resolve) => {
+    const cardElement = imgElement.parentElement;
+    const contentElement = cardElement.querySelector(".card-content");
+    const imgHeight = imgElement.clientHeight;
+    const contentHeight = contentElement.clientHeight;
+    cardElement.style.height = `${imgHeight + contentHeight}px`;
+    resolve();
+  });
 }
 
 function setMasonryHeight() {

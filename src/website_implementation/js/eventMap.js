@@ -29,6 +29,7 @@ const inputType = document.querySelector(".form__input--type");
 const inputTime = document.querySelector(".form__input--dateTime");
 const inputOrganiser = document.querySelector(".form__input--organiser");
 const inputDescription = document.querySelector(".form__input--description");
+const inputPhoto = document.querySelector(".form__input--photo");
 
 class App {
   #map;

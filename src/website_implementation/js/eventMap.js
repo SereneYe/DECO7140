@@ -183,6 +183,15 @@ class App {
           <span class="event__value">${event.organizer}</span>
           
         </div>
+
+        <div class="event__details">
+        <span class="event__icon">👉 </span>
+          <a class="event__link" href="events.html" target="_blank">
+              <span class="event__value">See the Event</span>
+            </a> 
+        </div>
+        
+        
     
       <div class="event__details-description">
           <span class="event__icon">📍</span>

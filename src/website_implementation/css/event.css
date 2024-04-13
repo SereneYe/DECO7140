@@ -35,6 +35,7 @@
   align-items: center;
   margin-left: 4rem;
   margin-bottom: 1rem;
+  gap: 3rem;
 }
 
 .sort-button {
@@ -43,7 +44,7 @@
   font-size: 1.8rem;
   background-color: #e7ede7;
   color: #406d41;
-  width: 16rem;
+  width: 18rem;
   height: 3.2rem;
   border-radius: 10px;
 }
@@ -222,16 +223,26 @@
 }
 .event__info-buttons {
   color: #0d3a0e;
+  transition: all 0.3s ease;
 }
 
 .event__info-buttons:hover,
 .event__info-buttons:focus,
 .event__info-buttons:active {
   color: #e18b00;
+  scale: 1.05;
+  text-decoration: none;
 }
 
 .event__organizer {
   font-weight: 700;
+}
+
+.event__info-row {
+  font-size: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 /**************************/

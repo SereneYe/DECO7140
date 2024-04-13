@@ -30,4 +30,9 @@ export default class EventController {
       });
     return sortedEvents;
   }
+
+  filterEvents(filterBy) {
+    let filteredEvents = this.events.filter((event) => event.type === filterBy);
+    return filteredEvents;
+  }
 }

@@ -52,6 +52,36 @@ const controlSortedResults = async () => {
 
         // 4) Render results on UI
         resultsView.render(state.events);
+        // Reset filter select to default value
+        document.getElementById("filterSelect").value = "";
+      });
+  } catch (err) {
+    console.error(err);
+  }
+};
+////////////////////////////
+const controlFilteredResults = async () => {
+  try {
+    // 1) Load search results
+    await loadEvent();
+    // 2) Create Controller instance
+    const eventController = new EventController(state.events);
+
+    // 3) Listen for changes on the filter select
+    document
+      .getElementById("filterSelect")
+      .addEventListener("change", function (e) {
+        let filterBy = e.target.value;
+
+        // Filter events
+        let filteredEvents = eventController.filterEvents(filterBy);
+
+        // Update state.events
+        state.events = filteredEvents;
+
+        // 4) Render results on UI
+        resultsView.render(state.events);
+        document.getElementById("sortSelect").value = "";
       });
   } catch (err) {
     console.error(err);
@@ -82,6 +112,7 @@ const controlAddEvent = async function (newEvent) {
 const init = function () {
   controlSearchResults();
   controlSortedResults();
+  controlFilteredResults();
   eventView.addHandlerRender(controlEvents);
   addEventView.addHandlerUpload(controlAddEvent);
 };

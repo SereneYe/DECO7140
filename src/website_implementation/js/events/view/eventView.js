@@ -41,7 +41,7 @@ class EventView extends View {
   
             <span class="event__info-data">${this._data.address}</span>
             <a class="event__info-data event__info-buttons" href="eventMap.html" target="_blank">
-              <span>👉 See on the map 👈</span>
+              <span>See on the map</span>
             </a> 
           </div>
           
@@ -51,6 +51,14 @@ class EventView extends View {
             ${this._data.description}.
            Hold by 
           <span class="event__organizer">${this._data.organiser}</span></p>
+          
+        </div>  
+
+        <div class="event__info-row">
+          <h2 class="heading--2">👩🏼‍🦱 User Comments  :</h2>
+          <a class="event__info-data event__info-buttons" href="blog.html" target="_blank">
+              <span>See blogs here</span>
+            </a> 
           
         </div>  
     `;

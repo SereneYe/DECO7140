@@ -64,10 +64,19 @@
       <div class="search-results">
         <div class="button-box">
           <select class="sort-button" id="sortSelect">
+            <option value="" selected disabled>Sort Events Here</option>
             <option value="order">Sort by release order</option>
             <option value="type">Sort by type</option>
             <option value="dateTime">Sort by time</option>
             <option value="name">Sort by name</option>
+          </select>
+
+          <select class="sort-button" id="filterSelect">
+            <option value="" selected disabled>Filter Events Here</option>
+            <option value="Workshop">Workshop</option>
+            <option value="Seminar">Seminar</option>
+            <option value="Group Activity">Group Activity</option>
+            <option value="Webinar">Webinar</option>
           </select>
         </div>
         <ul class="results"></ul>

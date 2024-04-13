@@ -60,7 +60,7 @@
 /**************************/
 
 .section-hero {
-  background-color: #e7ede7;
+  background-color: #cfdbcf;
   padding: 4.8rem 0 9.6rem 0;
 }
 
@@ -82,8 +82,14 @@
 
 .hero-img {
   width: 110%;
+  display: block;
   border-radius: 20px;
   position: relative;
+  transition: all 0.4s;
+}
+
+.hero-img:hover {
+  transform: scale(1.05);
 }
 
 .hero-img::after {
@@ -121,6 +127,7 @@
 
 .section-intro {
   padding: 9.6rem 0;
+  background-color: #ecf1ec;
 }
 
 .intro-number {
@@ -137,14 +144,21 @@
 
 .intro-img-box {
   position: relative;
+  padding-top: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .intro-img {
-  width: 70%;
+  width: 90%;
+  border-radius: 2rem;
+  transition: all 0.4s;
   /* z-index: 10; */
+}
+.intro-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.1);
 }
 
 /**************************/
@@ -270,7 +284,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.6rem;
-
   padding: 1.6rem;
 }
 
@@ -290,6 +303,7 @@
 .gallery-item img {
   display: block;
   width: 100%;
+  opacity: 0.9;
   transition: all 0.4s;
 }
 

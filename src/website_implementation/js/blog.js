@@ -45,7 +45,9 @@ function createCard(i) {
         
           <p class="card-attribute">
             <span>${fakeData.comment}</span>
+            
           </p>
+          <a class="blog-link" href="#">👉See Event👈</a>
           <p class="card-username">${fakeData.username}</p>
       </div>
   `;

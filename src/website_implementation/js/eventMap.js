@@ -1,4 +1,5 @@
 "use strict";
+
 import { state, loadEvent } from "./events/model.js";
 import { getEventEmoji, formatDateTime } from "./helper.js";
 
@@ -26,7 +27,7 @@ const containerEvents = document.querySelector(".events");
 const inputName = document.querySelector(".form__input--name");
 const inputType = document.querySelector(".form__input--type");
 const inputTime = document.querySelector(".form__input--dateTime");
-const inputOrganizer = document.querySelector(".form__input--organizer");
+const inputOrganiser = document.querySelector(".form__input--organiser");
 const inputDescription = document.querySelector(".form__input--description");
 
 class App {
@@ -92,7 +93,7 @@ class App {
     // Empty inputs
     inputName.value =
       inputTime.value =
-      inputOrganizer.value =
+      inputOrganiser.value =
       inputDescription.value =
         "";
 
@@ -109,7 +110,7 @@ class App {
     const type = inputType.value;
     const name = inputName.value;
     const dateTime = inputTime.value;
-    const organizer = inputOrganizer.value;
+    const organizer = inputOrganiser.value;
     const description = inputDescription.value;
     const { lat, lng } = this.#mapEvent.latlng;
     let event;
@@ -211,7 +212,7 @@ class App {
     });
 
     // using the public interface
-    // event.click();
+    event.click();
   }
 
   _setLocalStorage() {

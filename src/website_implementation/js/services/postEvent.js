@@ -1,10 +1,10 @@
 export const postEvent = function (event) {
   var formData = new FormData();
   formData.append("name", event.name);
-  formData.append("date_time", event.dateTime);
+  formData.append("date_time", event.date_time);
   formData.append("photo", event.photo);
   formData.append("organiser", event.organiser);
-  formData.append("event_type", event.type);
+  formData.append("event_type", event.event_type);
   formData.append("location", event.location);
   formData.append("description", event.description);
   formData.append("website_code", event.websiteCode);

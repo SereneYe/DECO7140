@@ -27,22 +27,13 @@ Paragraph default: 1.6
 #285b29 #406d41 #588058 #709270 #88a488 #9fb6a0
 #b7c8b8 #cfdbcf #e7ede7 #ecf1ec
 - Shades: 
-#0d3a0e
-#0b330c
-#030f03
-#082509
-#061d07
-#030f03
-
-- Accents:
+#0d3a0e #0b330c #030f03 #082509 #061d07 #030f03
+- Accents
 #548C2F #FFD449 #F9A620 #e18b00
 - Greys
-
-#888
-#767676 (lightest grey allowed on #fff)
-#6f6f6f (lightest grey allowed on #e7ede7)
-#555
-#333
+#888 #555 #333
+#767676 (lightest grey allowed on #fff) 
+#6f6f6f (lightest grey allowed on #e7ede7) 
 
 --- 05 SHADOWS
 

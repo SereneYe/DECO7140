@@ -19,7 +19,6 @@ export function fetchEvents() {
   return fetch(urlWithParams, requestOptions)
     .then((response) => response.json())
     .then((jsonResponse) => {
-      console.log(jsonResponse);
       return jsonResponse;
     });
 }

@@ -93,7 +93,6 @@ const controlAddEvent = async function (newEvent) {
   try {
     // Upload the new Event data
     await uploadEvent(newEvent);
-    console.log(state.events);
     // Render events
     eventView.render(state.events);
 

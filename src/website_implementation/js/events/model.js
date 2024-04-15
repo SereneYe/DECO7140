@@ -43,6 +43,7 @@ export const loadEvent = async function () {
 ////////////////////////////////////////////////////
 export const uploadEvent = async function (newEvent) {
   try {
+    console.log("model:", newEvent);
     const coords = newEvent.coords.split(",").map(Number);
     const [lat, lng] = coords;
     const address = await getAddressFromCoords({
@@ -57,12 +58,16 @@ export const uploadEvent = async function (newEvent) {
       location: newEvent.coords,
       event_type: newEvent.type,
       description: newEvent.description,
-      date_time: newEvent.date_time,
+      date_time: newEvent.dateTime,
       photo: newEvent.photo,
+      websiteCode: newEvent.websiteCode,
     };
 
+    console.log("push: ", pushCloudEvent);
+
     const returnedEvent = await postEvent(pushCloudEvent);
-    console.log(returnedEvent);
+
+    console.log("return: ", returnedEvent);
 
     const newRenderEvent = {
       id: returnedEvent.id,

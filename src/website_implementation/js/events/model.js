@@ -60,7 +60,6 @@ export const uploadEvent = async function (newEvent) {
       description: newEvent.description,
       date_time: newEvent.dateTime,
       photo: newEvent.photo,
-      websiteCode: newEvent.websiteCode,
     };
 
     console.log("push: ", pushCloudEvent);

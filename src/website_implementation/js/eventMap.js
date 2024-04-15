@@ -10,7 +10,6 @@ class Event {
     // this.date = ...
     this.id = id ? id : this.id;
     this.coords = coords; // [lat, lng]
-    console.log(coords);
     this.name = name;
     this.dateTime = dateTime;
     this.type = type;
@@ -147,7 +146,6 @@ class App {
   }
 
   _renderEventMarker(event) {
-    console.log(this);
     L.marker(event.coords)
       .addTo(this.#map)
       .bindPopup(
@@ -211,8 +209,11 @@ class App {
     const eventEl = e.target.closest(".event");
 
     if (!eventEl) return;
+    console.log(this.#events);
 
-    const event = this.#events.find((event) => event.id === eventEl.dataset.id);
+    const event = this.#events.find((event) => {
+      return event.id == eventEl.dataset.id;
+    });
 
     this.#map.setView(event.coords, this.#mapZoomLevel, {
       animate: true,

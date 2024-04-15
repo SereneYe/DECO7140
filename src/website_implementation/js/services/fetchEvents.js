@@ -1,11 +1,11 @@
+const MY_WEBSITE_CODE = "serene12345";
+
 export function fetchEvents() {
   const baseURL =
     "https://damp-castle-86239-1b70ee448fbd.herokuapp.com/decoapi/community_events/";
 
-  const my_website_code = "serene12345";
-
   const queryParams = {
-    website_code: my_website_code,
+    website_code: MY_WEBSITE_CODE,
   };
 
   const queryString = new URLSearchParams(queryParams).toString();

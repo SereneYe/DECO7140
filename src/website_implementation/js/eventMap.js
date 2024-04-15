@@ -2,13 +2,12 @@
 
 import { state, loadEvent } from "./events/model.js";
 import { getEventEmoji, formatDateTime } from "./helper.js";
+import { postEvent } from "./services/postEvent.js";
 
 class Event {
-  date = new Date();
-  id = Number((Date.now() + "").slice(-3));
   constructor(id, coords, name, dateTime, type, organizer, description) {
     // this.date = ...
-    this.id = id ? id : this.id;
+    this.id = id;
     this.coords = coords; // [lat, lng]
     this.name = name;
     this.dateTime = dateTime;
@@ -42,7 +41,7 @@ class App {
 
     // Get data from local storage
     this._adjustAPIData();
-    this._getLocalStorage();
+    // this._getLocalStorage();
 
     // Attach event handlers
     form.addEventListener("submit", this._newEvent.bind(this));
@@ -95,6 +94,7 @@ class App {
       inputTime.value =
       inputOrganiser.value =
       inputDescription.value =
+      inputPhoto.value =
         "";
 
     form.style.display = "none";
@@ -102,7 +102,7 @@ class App {
     setTimeout(() => (form.style.display = "grid"), 1000);
   }
 
-  _newEvent(e) {
+  async _newEvent(e) {
     const validInputs = (...inputs) => inputs.every((inp) => inp !== "");
     e.preventDefault();
 
@@ -112,21 +112,37 @@ class App {
     const dateTime = inputTime.value;
     const organizer = inputOrganiser.value;
     const description = inputDescription.value;
+    const photo = inputPhoto.files[0];
     const { lat, lng } = this.#mapEvent.latlng;
+    const latLngString = `${lat}, ${lng}`;
     let event;
 
     if (!validInputs(name, dateTime, type, organizer, description)) {
       return alert("All inputs have to be filled!");
     }
 
+    const pushCloudEvent = {
+      name: name,
+      organiser: organizer,
+      location: latLngString,
+      event_type: type,
+      description: description,
+      date_time: dateTime,
+      photo: photo,
+    };
+
+    const returnedEvent = await postEvent(pushCloudEvent);
+
+    console.log("return: ", returnedEvent);
+
     event = new Event(
-      "",
+      returnedEvent.id,
       [lat, lng],
-      name,
-      dateTime,
-      type,
-      organizer,
-      description
+      returnedEvent.name,
+      formatDateTime(returnedEvent.date_time),
+      returnedEvent.event_type,
+      returnedEvent.organiser,
+      returnedEvent.description
     );
 
     // Add new object to event array

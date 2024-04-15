@@ -1,3 +1,5 @@
+const MY_WEBSITE_CODE = "serene12345";
+
 export const postEvent = function (event) {
   var formData = new FormData();
   formData.append("name", event.name);
@@ -7,7 +9,7 @@ export const postEvent = function (event) {
   formData.append("event_type", event.event_type);
   formData.append("location", event.location);
   formData.append("description", event.description);
-  formData.append("website_code", event.websiteCode);
+  formData.append("website_code", MY_WEBSITE_CODE);
 
   const baseURL =
     "https://damp-castle-86239-1b70ee448fbd.herokuapp.com/decoapi/community_events/";

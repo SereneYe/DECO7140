@@ -5,7 +5,7 @@ export default class EventController {
 
   sortEvents(sortBy) {
     let sortedEvents;
-    if (sortBy === "order") sortedEvents = this.events;
+    if (sortBy === "order") sortedEvents = [...this.events].reverse();
     if (sortBy === "type" || sortBy === "name")
       sortedEvents = [...this.events].sort((a, b) =>
         a[sortBy].localeCompare(b[sortBy])

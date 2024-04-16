@@ -31,7 +31,7 @@ const inputPhoto = document.querySelector(".form__input--photo");
 
 class App {
   #map;
-  #mapZoomLevel = 13;
+  #mapZoomLevel = 14;
   #mapEvent;
   #events = [];
 
@@ -41,7 +41,6 @@ class App {
 
     // Get data from local storage
     this._adjustAPIData();
-    // this._getLocalStorage();
 
     // Attach event handlers
     form.addEventListener("submit", this._newEvent.bind(this));
@@ -77,8 +76,8 @@ class App {
     // Handling clicks on map
     this.#map.on("click", this._showForm.bind(this));
 
-    this.#events.forEach((work) => {
-      this._renderEventMarker(work);
+    this.#events.forEach((event) => {
+      this._renderEventMarker(event);
     });
   }
 
@@ -156,9 +155,6 @@ class App {
 
     // Hide form + clear input fields
     this._hideForm();
-
-    // Set local storage to all Events
-    this._setLocalStorage();
   }
 
   _renderEventMarker(event) {
@@ -201,7 +197,7 @@ class App {
 
         <div class="event__details">
         <span class="event__icon">👉 </span>
-          <a class="event__link" href="events.html" target="_blank">
+          <a class="event__link" href="events.html#${event.id}" target="_blank">
               <span class="event__value">See the Event</span>
             </a> 
         </div>
@@ -242,22 +238,6 @@ class App {
     event.click();
   }
 
-  _setLocalStorage() {
-    localStorage.setItem("events", JSON.stringify(this.#events));
-  }
-
-  _getLocalStorage() {
-    const data = JSON.parse(localStorage.getItem("events"));
-
-    if (!data) return;
-
-    this.#events = data;
-
-    this.#events.forEach((event) => {
-      this._renderEvent(event);
-    });
-  }
-
   async _adjustAPIData() {
     await loadEvent();
     const eventsArray = Object.values(state.events);
@@ -282,11 +262,6 @@ class App {
     this.#events.forEach((event) => {
       this._renderEvent(event);
     });
-  }
-
-  reset() {
-    localStorage.removeItem("events");
-    location.reload();
   }
 }
 

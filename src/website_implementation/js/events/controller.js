@@ -92,14 +92,18 @@ const controlFilteredResults = async () => {
 const controlAddEvent = async function (newEvent) {
   try {
     // Upload the new Event data
-    await uploadEvent(newEvent);
+    const updatedEvents = await uploadEvent(newEvent);
+    // Update state.events
+    state.events = updatedEvents;
+
     // Render events
+    resultsView.render(state.events);
     eventView.render(state.events);
 
     // Close form window
     setTimeout(function () {
       addEventView.togglePopup();
-    }, 10 * 1000);
+    }, 5 * 1000);
   } catch (err) {
     console.error("🥲🥲🥲", err);
     addEventView.renderError(err.message);

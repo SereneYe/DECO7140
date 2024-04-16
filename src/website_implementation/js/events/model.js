@@ -82,6 +82,7 @@ export const uploadEvent = async function (newEvent) {
     };
 
     state.events[newRenderEvent.id] = newRenderEvent;
+    return state.events;
   } catch (err) {
     throw err;
   }

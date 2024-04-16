@@ -93,6 +93,10 @@ body {
   margin: 0 auto;
 }
 
+.btn-mobile-nav {
+  display: none;
+}
+
 .grid {
   display: grid;
   column-gap: 6.4rem;

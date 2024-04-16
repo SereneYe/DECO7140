@@ -189,6 +189,19 @@ body {
 }
 
 .form__btn {
+  font-size: 1.4rem;
+  padding: 0.3rem;
+  width: 10rem;
+  grid-column: span 2;
+  justify-self: end;
+  margin-bottom: 0.5rem;
+  background-color: #e7ede7;
+  color: #104911;
+}
+
+.form__btn:hover {
+  background-color: #285b29;
+  color: #e7ede7;
 }
 
 /* MAP */

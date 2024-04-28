@@ -43,6 +43,7 @@ class App {
 
     // Get data from local storage
     this._adjustAPIData();
+    this._getLocalStorage();
 
     // Attach event handlers
     form.addEventListener("submit", this._newEvent.bind(this));
@@ -157,6 +158,9 @@ class App {
 
     // Hide form + clear input fields
     this._hideForm();
+
+    // Set local storage to all Events
+    this._setLocalStorage();
   }
 
   _renderEventMarker(event) {
@@ -240,6 +244,18 @@ class App {
     event.click();
   }
 
+  _setLocalStorage() {
+    localStorage.setItem("events", JSON.stringify(this.#events));
+  }
+  _getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem("events"));
+    if (!data) return;
+    this.#events = data;
+    this.#events.forEach((event) => {
+      this._renderEvent(event);
+    });
+  }
+
   async _adjustAPIData() {
     await loadEvent();
     const eventsArray = Object.values(state.events);
@@ -264,6 +280,10 @@ class App {
     this.#events.forEach((event) => {
       this._renderEvent(event);
     });
+  }
+  reset() {
+    localStorage.removeItem("events");
+    location.reload();
   }
 }
 

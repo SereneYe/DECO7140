@@ -17,6 +17,7 @@ class AddEventView extends View {
   togglePopup() {
     this._overlay.classList.toggle("hidden");
     this._popup.classList.toggle("hidden");
+    this._addCalendarAPI();
   }
 
   _addHandlerShowPopup() {
@@ -36,6 +37,16 @@ class AddEventView extends View {
 
       handler(data);
     });
+  }
+
+  _addCalendarAPI() {
+    const inputTime = document.querySelector("#inputTime");
+    if (inputTime) {
+      const fp = flatpickr(inputTime, {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+      });
+    }
   }
 
   _generateMarkup() {}

@@ -74,4 +74,39 @@
   .search-results {
     width: 25rem;
   }
+  .preview__fig {
+    display: none;
+  }
+
+  .add-event-popup {
+    padding: 3rem 5rem;
+    width: 50rem;
+  }
+  .upload__column {
+    grid-template-columns: 1fr;
+    padding: 0;
+    gap: 1rem;
+  }
+}
+
+/**************************/
+/* BELOW 360px (Phones) */
+/**************************/
+@media (max-width: 23em) {
+  html {
+    font-size: 40%;
+  }
+  .preview__link:link {
+    padding: 1rem;
+  }
+
+  .preview__organizer {
+    display: none;
+  }
+  preview__title {
+    font-size: 1rem;
+  }
+  .search-results {
+    width: 15rem;
+  }
 }

@@ -200,4 +200,11 @@
   html {
     font-size: 40%;
   }
+
+  .logo-col {
+    display: none;
+  }
+  .grid--footer {
+    grid-template-columns: 1fr 1fr;
+  }
 }

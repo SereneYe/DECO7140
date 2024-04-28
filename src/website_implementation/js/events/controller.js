@@ -91,6 +91,8 @@ const controlFilteredResults = async () => {
 /////////////////////////
 const controlAddEvent = async function (newEvent) {
   try {
+    // Call the calendar API function
+
     // Upload the new Event data
     const updatedEvents = await uploadEvent(newEvent);
     // Update state.events

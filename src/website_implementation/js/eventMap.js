@@ -24,7 +24,9 @@ const form = document.querySelector(".form");
 const containerEvents = document.querySelector(".events");
 const inputName = document.querySelector(".form__input--name");
 const inputType = document.querySelector(".form__input--type");
+
 const inputTime = document.querySelector(".form__input--dateTime");
+const fp = flatpickr(inputTime, { enableTime: true, dateFormat: "Y-m-d H:i" });
 const inputOrganiser = document.querySelector(".form__input--organiser");
 const inputDescription = document.querySelector(".form__input--description");
 const inputPhoto = document.querySelector(".form__input--photo");

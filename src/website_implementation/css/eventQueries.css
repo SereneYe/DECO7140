@@ -52,15 +52,21 @@
     flex-direction: column;
   }
   .container {
-    grid-template-columns: 0.5fr 2fr;
-  }
-  .search-results {
-    width: 30rem;
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-rows: auto auto auto;
   }
 
-  .button-box {
-    flex-direction: column;
-    gap: 1rem;
+  .search-results {
+    grid-row: 3;
+    grid-column: 1 / -1;
+    width: auto;
+    max-height: 50rem;
+  }
+
+  .event {
+    grid-row: 2;
+    grid-column: 1 / -1;
   }
 }
 /**************************/
@@ -70,12 +76,6 @@
 @media (max-width: 34em) {
   html {
     font-size: 40%;
-  }
-  .search-results {
-    width: 25rem;
-  }
-  .preview__fig {
-    display: none;
   }
 
   .add-event-popup {
@@ -103,10 +103,7 @@
   .preview__organizer {
     display: none;
   }
-  preview__title {
+  .preview__title {
     font-size: 1rem;
-  }
-  .search-results {
-    width: 15rem;
   }
 }

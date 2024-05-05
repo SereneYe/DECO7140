@@ -44,8 +44,13 @@
     grid-template-columns: 1fr;
   }
 
+  .content {
+    flex-direction: column-reverse;
+  }
+
   .sidebar {
     flex-basis: 40rem;
+    max-height: 65rem;
   }
 
   /* MOBILE NAVIGATION */

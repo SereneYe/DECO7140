@@ -15,13 +15,19 @@ export function getEventEmoji(eventType) {
 }
 
 export function formatDateTime(dateTime) {
-  const date = new Date(dateTime);
-  const day = String(date.getDate()).padStart(2, "0");
-  const month = String(date.getMonth() + 1).padStart(2, "0");
+  // Split the date and time
+  const [datePart, timePart] = dateTime.split(" ");
+  // Split the date into day, month, year
+  const [day, month, year] = datePart.split("/");
+  // Create a new date string in the format MM/DD/YYYY
+  const newDateStr = `${month}/${day}/${year} ${timePart}`;
+  const date = new Date(newDateStr);
+  const dayStr = String(date.getDate()).padStart(2, "0");
+  const monthStr = String(date.getMonth() + 1).padStart(2, "0");
   const hours = String(date.getHours()).padStart(2, "0");
   const minutes = String(date.getMinutes()).padStart(2, "0");
 
-  return `${day}/${month} ${hours}:${minutes}`;
+  return `${dayStr}/${monthStr} ${hours}:${minutes}`;
 }
 
 export function formatDateTimeYear(dateTime) {

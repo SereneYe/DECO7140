@@ -10,6 +10,10 @@ export default class EventController {
       sortedEvents = [...this.events].sort((a, b) =>
         a[sortBy].localeCompare(b[sortBy])
       );
+    if (sortBy === "price" || sortBy === "intensity") {
+      sortedEvents = [...this.events].sort(() => Math.random() - 0.5);
+      return sortedEvents;
+    }
     if (sortBy === "dateTime")
       sortedEvents = [...this.events].sort((a, b) => {
         const dateA = Date.parse(

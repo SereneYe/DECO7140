@@ -82,6 +82,10 @@
     padding: 3rem 5rem;
     width: 50rem;
   }
+
+  .container {
+    display: grid;
+  }
   .upload__column {
     grid-template-columns: 1fr;
     padding: 0;

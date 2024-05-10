@@ -37,7 +37,6 @@ const controlSortedResults = async () => {
     await loadEvent();
     // 2) Create Controller instance
     const eventController = new EventController(state.events);
-
     // 3) Listen for changes on the sort select
     document
       .getElementById("sortSelect")
@@ -59,6 +58,7 @@ const controlSortedResults = async () => {
     console.error(err);
   }
 };
+
 ////////////////////////////
 const controlFilteredResults = async () => {
   try {
@@ -91,8 +91,6 @@ const controlFilteredResults = async () => {
 /////////////////////////
 const controlAddEvent = async function (newEvent) {
   try {
-    // Call the calendar API function
-
     // Upload the new Event data
     const updatedEvents = await uploadEvent(newEvent);
     // Update state.events

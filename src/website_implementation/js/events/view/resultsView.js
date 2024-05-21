@@ -1,4 +1,3 @@
-// view.js
 import View from "./View.js";
 
 export class PreviewView extends View {

@@ -106,7 +106,6 @@ const controlAddEvent = async function (newEvent) {
     }, 5 * 1000);
   } catch (err) {
     console.error("🥲🥲🥲", err);
-    addEventView.renderError(err.message);
   }
 };
 
